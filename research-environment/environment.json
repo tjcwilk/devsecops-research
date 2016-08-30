@@ -129,7 +129,9 @@
              "wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | apt-key add -\n",
              "sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'\n",
              "apt-get -y update\n",
-             "apt-get install -y jenkins\n"
+             "apt-get install -y jenkins\n",
+             "echo 'Jenkins Password is: ' \n",
+             "cat /var/lib/jenkins/secrets/initialAdminPassword\n"
         ]]}}
       }
     }
