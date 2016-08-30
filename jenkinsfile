@@ -8,6 +8,6 @@ node {
    stage 'Release approval'
    echo 'TODO - Release approval here'
 
-   stag 'Deploy to production nvironment'
+   stage 'Deploy to production nvironment'
    echo 'TODO - Deploy to production environment here'
 }
