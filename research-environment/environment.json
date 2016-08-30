@@ -239,7 +239,7 @@
       "DependsOn" : "AttachGateway",
       "Properties" : {
         "Domain" : "vpc",
-        "InstanceId" : { "Ref" : "WebServerInstance" }
+        "InstanceId" : { "Ref" : "JenkinsServer" }
       }
     },
 
@@ -256,7 +256,7 @@
     },
 
 
-    "WebServerInstance" : {
+    "JenkinsServer" : {
       "Type" : "AWS::EC2::Instance",
       "DependsOn" : "AttachGateway",
       "Metadata" : {
@@ -295,10 +295,10 @@
                 "content": { "Fn::Join" : ["", [
                   "[cfn-auto-reloader-hook]\n",
                   "triggers=post.update\n",
-                  "path=Resources.WebServerInstance.Metadata.AWS::CloudFormation::Init\n",
+                  "path=Resources.JenkinsServer.Metadata.AWS::CloudFormation::Init\n",
                   "action=/opt/aws/bin/cfn-init -v ",
                   "         --stack ", { "Ref" : "AWS::StackName" },
-                  "         --resource WebServerInstance ",
+                  "         --resource JenkinsServer ",
                   "         --region ", { "Ref" : "AWS::Region" }, "\n",
                   "runas=root\n"
                 ]]}
@@ -334,12 +334,12 @@
 
              "/opt/aws/bin/cfn-init -v ",
              "         --stack ", { "Ref" : "AWS::StackName" },
-             "         --resource WebServerInstance ",
+             "         --resource JenkinsServer ",
              "         --region ", { "Ref" : "AWS::Region" }, "\n",
 
              "/opt/aws/bin/cfn-signal -e $? ",
              "         --stack ", { "Ref" : "AWS::StackName" },
-             "         --resource WebServerInstance ",
+             "         --resource JenkinsServer ",
              "         --region ", { "Ref" : "AWS::Region" }, "\n"
         ]]}}
       },
@@ -353,7 +353,7 @@
 
   "Outputs" : {
     "URL" : {
-      "Value" : { "Fn::Join" : [ "", ["http://", { "Fn::GetAtt" : ["WebServerInstance", "PublicIp"] }]]},
+      "Value" : { "Fn::Join" : [ "", ["http://", { "Fn::GetAtt" : ["JenkinsServer", "PublicIp"] }]]},
       "Description" : "Newly created application URL"
     }
   }
