@@ -1,7 +1,9 @@
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
 
-  "Description" : "AWS CloudFormation Sample Template VPC_Single_Instance_In_Subnet: Sample template showing how to create a VPC and add an EC2 instance with an Elastic IP address and a security group. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
+  "Description" : "AWS CloudFormation that sets up a research environment for secdevops development and testing",
+
+
 
   "Parameters" : {
 
@@ -21,6 +23,7 @@
       "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
     }
   },
+
 
 
   "Resources" : {
@@ -92,19 +95,17 @@
       }
     },
 
-    "InstanceSecurityGroup" : {
+    "securitygroup_jenkins" : {
       "Type" : "AWS::EC2::SecurityGroup",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
         "GroupDescription" : "Enable SSH access via port 22",
         "SecurityGroupIngress" : [
           {"IpProtocol" : "tcp", "FromPort" : "22", "ToPort" : "22", "CidrIp" : { "Ref" : "SSHLocation"}},
-          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" : "0.0.0.0/0"},
-          {"IpProtocol" : "tcp", "FromPort" : "8080", "ToPort" : "8080", "CidrIp" : "0.0.0.0/0"}
+          { "IpProtocol" : "tcp", "FromPort" : "80", "ToPort" : "80", "CidrIp" : "0.0.0.0/0"}
          ]
       }
     },
-
 
     "JenkinsServer" : {
       "Type" : "AWS::EC2::Instance",
@@ -118,7 +119,7 @@
         "KeyName" : { "Ref" : "KeyName" },
         "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} } ],
         "NetworkInterfaces" : [{
-          "GroupSet"                 : [{ "Ref" : "InstanceSecurityGroup" }],
+          "GroupSet"                 : [{ "Ref" : "securitygroup_jenkins" }],
           "AssociatePublicIpAddress" : "true",
           "DeviceIndex"              : "0",
           "DeleteOnTermination"      : "true",
@@ -137,6 +138,8 @@
       }
     }
   },
+
+
 
   "Outputs" : {
     "URL" : {
