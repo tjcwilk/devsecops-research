@@ -270,39 +270,7 @@
             },
 
             "files" : {
-              "/var/www/html/index.html" : {
-                "content" : { "Fn::Join" : ["\n", [
-                  "<img src=\"", {"Fn::FindInMap" : ["Region2Examples", {"Ref" : "AWS::Region"}, "Examples"]}, "/cloudformation_graphic.png\" alt=\"AWS CloudFormation Logo\"/>",
-                  "<h1>Congratulations, you have successfully launched the AWS CloudFormation sample.</h1>"
-                ]]},
-                "mode"    : "000644",
-                "owner"   : "root",
-                "group"   : "root"
-              },
 
-              "/etc/cfn/cfn-hup.conf" : {
-                "content" : { "Fn::Join" : ["", [
-                  "[main]\n",
-                  "stack=", { "Ref" : "AWS::StackId" }, "\n",
-                  "region=", { "Ref" : "AWS::Region" }, "\n"
-                ]]},
-                "mode"    : "000400",
-                "owner"   : "root",
-                "group"   : "root"
-              },
-
-              "/etc/cfn/hooks.d/cfn-auto-reloader.conf" : {
-                "content": { "Fn::Join" : ["", [
-                  "[cfn-auto-reloader-hook]\n",
-                  "triggers=post.update\n",
-                  "path=Resources.JenkinsServer.Metadata.AWS::CloudFormation::Init\n",
-                  "action=/opt/aws/bin/cfn-init -v ",
-                  "         --stack ", { "Ref" : "AWS::StackName" },
-                  "         --resource JenkinsServer ",
-                  "         --region ", { "Ref" : "AWS::Region" }, "\n",
-                  "runas=root\n"
-                ]]}
-              }
             },
 
             "services" : {
