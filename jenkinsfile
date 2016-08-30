@@ -1,6 +1,13 @@
 node {
-   stage 'Deploy Environment'
-   echo 'TODO - Deploy sample application here'
-   stage 'Security Testing'
-   echo 'Apply security testing here'
+   stage 'Deploy to test environment'
+   echo 'TODO - Deploy sample Application Here'
+
+   stage 'Security testing'
+   echo 'TODO - Apply security testing here'
+
+   stage 'Release approval'
+   echo 'TODO - Release approval here'
+
+   staging 'Deploy to production nvironment'
+   echo 'TODO - Deploy to production environment here'
 }
