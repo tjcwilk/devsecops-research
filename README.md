@@ -1,2 +1,2 @@
 # devsecops-research
-A reporsitory containing code to carry out research of security and CI technologies
+This project creates an environment for performing reserch and testing of continuouse deployment and automated security testing
