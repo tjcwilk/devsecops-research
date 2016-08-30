@@ -264,9 +264,6 @@
         "AWS::CloudFormation::Init" : {
           "config" : {
             "packages" : {
-              "yum" : {
-                "httpd"             : []
-              }
             },
 
             "files" : {
