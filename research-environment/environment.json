@@ -291,11 +291,6 @@
              "#!/bin/bash -xe\n",
              "apt-get update -y\n"
         ]]}}
-      },
-      "CreationPolicy" : {
-        "ResourceSignal" : {
-          "Timeout" : "PT15M"
-        }
       }
     }
   },
