@@ -95,7 +95,7 @@
       }
     },
 
-    "securitygroup_jenkins" : {
+    "SecurityGroupJenkins" : {
       "Type" : "AWS::EC2::SecurityGroup",
       "Properties" : {
         "VpcId" : { "Ref" : "VPC" },
@@ -120,7 +120,7 @@
         "KeyName" : { "Ref" : "KeyName" },
         "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} } ],
         "NetworkInterfaces" : [{
-          "GroupSet"                 : [{ "Ref" : "securitygroup_jenkins" }],
+          "GroupSet"                 : [{ "Ref" : "SecurityGroupJenkins" }],
           "AssociatePublicIpAddress" : "true",
           "DeviceIndex"              : "0",
           "DeleteOnTermination"      : "true",
