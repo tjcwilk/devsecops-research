@@ -1,4 +1,6 @@
+sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt-get install -y python-pip
 sudo pip install Flask
 sudo apt-get install -y sqlite3
-sqlite3 flaskr.db < schema.sql
+sqlite3 /tmp/flaskr.db < schema.sql
