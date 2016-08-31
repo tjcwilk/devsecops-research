@@ -152,6 +152,11 @@
     "VPC" : {
       "Value" : {"Ref":"VPC"},
       "Description" : "VPC ID"
+    },
+
+    "Subnet" : {
+      "Value" : {"Ref":"Subnet"},
+      "Description" : "Subnet ID"
     }
 
   }
