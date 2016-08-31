@@ -143,9 +143,19 @@
 
 
   "Outputs" : {
+
     "URL" : {
       "Value" : { "Fn::Join" : [ "", ["http://", { "Fn::GetAtt" : ["JenkinsServer", "PublicIp"] }]]},
       "Description" : "Newly created application URL"
+    },
+
+    "VPC" : {
+      "Value" : {"Ref":"VPC"},
+      "Description" : "VPC ID"
     }
+
   }
+
+
+
 }
