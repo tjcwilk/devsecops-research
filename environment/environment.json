@@ -12,7 +12,7 @@
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription" : "must be the name of an existing EC2 KeyPair."
     },
-    
+
     "SSHLocation" : {
       "Description" : " The IP address range that can be used to SSH to the EC2 instances",
       "Type": "String",
@@ -118,7 +118,7 @@
         "ImageId" : "ami-be3559cd",
         "InstanceType" : "t2.small",
         "KeyName" : { "Ref" : "KeyName" },
-        "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} } ],
+        "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} }, { "Key" : "Name", "Value" : "JenkinsServer" } ],
         "NetworkInterfaces" : [{
           "GroupSet"                 : [{ "Ref" : "SecurityGroupJenkins" }],
           "AssociatePublicIpAddress" : "true",
@@ -149,4 +149,3 @@
     }
   }
 }
-
