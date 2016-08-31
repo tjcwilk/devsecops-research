@@ -67,7 +67,7 @@
         "ImageId" : "ami-be3559cd",
         "InstanceType" : "t2.small",
         "KeyName" : { "Ref" : "KeyName" },
-        "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} }, { "Key" : "Name", "Value" : "WebServer" } ],
+        "Tags" : [ {"Key" : "Application", "Value" : { "Ref" : "AWS::StackId"} }, { "Key" : "Name", "Value" : "FlaskrWebServer" } ],
         "NetworkInterfaces" : [{
           "GroupSet"                 : [{ "Ref" : "SecurityGroupWebserver" }],
           "AssociatePublicIpAddress" : "true",
