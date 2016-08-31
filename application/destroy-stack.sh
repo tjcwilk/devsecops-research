@@ -1,1 +1,1 @@
-aws cloudformation delete-stack --stack-name flaskrWebServer
+aws cloudformation delete-stack --stack-name devsecops-flaskr

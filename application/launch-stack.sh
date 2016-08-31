@@ -1,1 +1,1 @@
-aws cloudformation create-stack --stack-name flaskrWebServer --template-body file://application.json --parameters ParameterKey=KeyName,ParameterValue=toby_NDRResearchKey ParameterKey=VPC,ParameterValue=vpc-ecbc3f88 ParameterKey=Subnet,ParameterValue=subnet-8d9f01fb
+aws cloudformation create-stack --stack-name devsecops-flaskr --template-body file://application.json --parameters ParameterKey=KeyName,ParameterValue=toby_NDRResearchKey ParameterKey=VPC,ParameterValue=vpc-ecbc3f88 ParameterKey=Subnet,ParameterValue=subnet-8d9f01fb
