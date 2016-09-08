@@ -81,10 +81,10 @@
              "apt-get -y upgrade\n",
              "git clone https://github.com/tobwilk/devsecops-research.git\n",
              "cd ./devsecops-research/application/flaskr/\n",
-             "sqlite3 flaskr.db < schema.sql\n",
              "chmod +x ./setup.sh\n",
              "chmod +x ./start.sh\n",
              "./setup.sh\n",
+             "sqlite3 flaskr.db < schema.sql\n",
              "./start.sh\n"
         ]]}}
       }
